@@ -10,6 +10,11 @@
 
       $(document).ready(function(){
 
+        // Initialize variables
+        var lastLength = 0;
+        var refresh = 1;
+
+        // Create html structure/elements
         var $body = $('body');
         $body.html('');
 
@@ -19,10 +24,21 @@
         var $tweetSection = $('<section></section>').attr('id', 'tweetSection');
         $body.append($tweetSection);
 
-        var $toggleRefresh = $('<div></div>').attr('id', 'toggleRefresh').text('On');
+        var $toggleRefresh = $('<div></div>').addClass('toggleRefresh').text('On');
         $header.append($toggleRefresh);
 
-        var lastLength = 0;
+        // Button handlers
+        $($toggleRefresh).on('click', function() {
+          if(refresh === 1) {
+            refresh = 0;
+            $($toggleRefresh).text('Off');
+            $($toggleRefresh).addClass('off');
+          } else {
+            refresh = 1;
+            $($toggleRefresh).text('On');
+            $($toggleRefresh).removeClass('off');
+          }
+        });
 
         // Check for new tweets, add new tweets to html
         var checkForNew = function() {
@@ -30,7 +46,7 @@
           var newLength = streams.home.length;
           var diff = newLength - lastLength;
 
-          if(diff) {
+          if(diff && refresh ===1) {
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
@@ -40,6 +56,7 @@
             }
           }
         }
+
         // Set interval for checking of new tweets to 2000ms
         setInterval(checkForNew,2000);
 
