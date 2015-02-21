@@ -3,6 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <script>
@@ -30,7 +31,7 @@
           if(diff) {
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
-              $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
+              $body.prepend('<div class="tweet">@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
               lastLength = streams.home.length;
             }
           }
