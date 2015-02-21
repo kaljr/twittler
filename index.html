@@ -13,16 +13,7 @@
         var $body = $('body');
         $body.html('');
 
-        var lastLength = streams.home.length;
-        var index = lastLength - 1;
-
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+        var lastLength = 0;
 
         // Check for new tweets, add new tweets to html
         var checkForNew = function() {
@@ -31,7 +22,9 @@
           if(diff) {
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
-              $body.prepend('<div class="tweet">@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
+              var $tweet = $('<div class=tweet></div>');
+              $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at)
+              $tweet.prependTo($body);
               lastLength = streams.home.length;
             }
           }
