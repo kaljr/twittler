@@ -17,7 +17,7 @@
 
         // Check for new tweets, add new tweets to html
         var checkForNew = function() {
-          
+
           var newLength = streams.home.length;
           var diff = newLength - lastLength;
 
@@ -25,14 +25,14 @@
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div class=tweet></div>');
-              $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at)
-              $tweet.prependTo($body);
+              $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at);
+              $tweet.hide().prependTo($body).fadeIn(800);
               lastLength = streams.home.length;
             }
           }
         }
-        // Set interval for checking of new tweets to 500ms
-        setInterval(checkForNew,500);
+        // Set interval for checking of new tweets to 2000ms
+        setInterval(checkForNew,2000);
 
       });
 
