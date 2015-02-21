@@ -23,17 +23,20 @@
           index -= 1;
         }
 
-        // Create function to check for new tweets, add new tweets to html
+        // Check for new tweets, add new tweets to html
         var checkForNew = function() {
           var newLength = streams.home.length;
-          if(newLength > lastLength) {
-            tweet = streams.home[newLength-1];
-            $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
-            lastLength = streams.home.length;
+          var diff = newLength - lastLength;
+          if(diff) {
+            for(var i=1;i<=diff;i++) {
+              tweet = streams.home[newLength-i];
+              $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+' '+diff+'</div>');
+              lastLength = streams.home.length;
+            }
           }
         }
-        // Set interval for checking of new tweets to 1s
-        setInterval(checkForNew,1000);
+        // Set interval for checking of new tweets to 500ms
+        setInterval(checkForNew,500);
 
       });
 
