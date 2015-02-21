@@ -2,6 +2,12 @@ body {
 	background-color:#eee;
 }
 
+.header {
+	background-color: #666;
+	margin: 0;
+	padding: 10px;
+}
+
 .tweet {
 	background-color: #ddd;
 	width: 80%;
@@ -11,4 +17,21 @@ body {
 	border-radius: 32px 0 0 12px;
 	font-size: 1.2em;
 	color: #555;
+}
+
+#toggleRefresh {
+	width: 40px;
+	padding: 5px;
+	margin: 3px;
+	background-color: #444;
+	border-radius: 6px;
+	font-size: 1em;
+	color: #ddd;
+	text-align: center;
+}
+
+#tweetSection {
+	background-color: #eee;
+	padding: 0;
+	margin: 0;
 }

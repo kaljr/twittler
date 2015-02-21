@@ -13,6 +13,15 @@
         var $body = $('body');
         $body.html('');
 
+        var $header = $('<header></header>').addClass('header');
+        $body.append($header);
+
+        var $tweetSection = $('<section></section>').attr('id', 'tweetSection');
+        $body.append($tweetSection);
+
+        var $toggleRefresh = $('<div></div>').attr('id', 'toggleRefresh').text('On');
+        $header.append($toggleRefresh);
+
         var lastLength = 0;
 
         // Check for new tweets, add new tweets to html
@@ -24,9 +33,9 @@
           if(diff) {
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
-              var $tweet = $('<div class=tweet></div>');
+              var $tweet = $('<div></div>').addClass('tweet');
               $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at);
-              $tweet.hide().prependTo($body).fadeIn(800);
+              $tweet.hide().prependTo($tweetSection).fadeIn(800);
               lastLength = streams.home.length;
             }
           }
