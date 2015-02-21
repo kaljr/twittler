@@ -8,10 +8,13 @@
     <script>
 
       $(document).ready(function(){
+
         var $body = $('body');
         $body.html('');
 
-        var index = streams.home.length - 1;
+        var lastLength = streams.home.length;
+        var index = lastLength - 1;
+
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
@@ -19,6 +22,16 @@
           $tweet.appendTo($body);
           index -= 1;
         }
+
+        // Create function to check for new tweets, add new tweets to html
+        var checkForNew = function() {
+          if(streams.home.length > lastLength) {
+            $body.prepend('<div>@'+streams.home[streams.home.length-1].user+": "+streams.home[streams.home.length-1].message+'</div>');
+            lastLength = streams.home.length;
+          }
+        }
+        // Set interval for checking of new tweets to 1s
+        setInterval(checkForNew,1000);
 
       });
 
