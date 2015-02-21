@@ -25,8 +25,10 @@
 
         // Create function to check for new tweets, add new tweets to html
         var checkForNew = function() {
-          if(streams.home.length > lastLength) {
-            $body.prepend('<div>@'+streams.home[streams.home.length-1].user+": "+streams.home[streams.home.length-1].message+'</div>');
+          var newLength = streams.home.length;
+          if(newLength > lastLength) {
+            tweet = streams.home[newLength-1];
+            $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
             lastLength = streams.home.length;
           }
         }
