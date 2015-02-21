@@ -28,9 +28,9 @@
           var newLength = streams.home.length;
           var diff = newLength - lastLength;
           if(diff) {
-            for(var i=1;i<=diff;i++) {
+            for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
-              $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+' '+diff+'</div>');
+              $body.prepend('<div>@'+tweet.user+': '+tweet.message+' '+tweet.created_at+'</div>');
               lastLength = streams.home.length;
             }
           }
