@@ -21,7 +21,7 @@
         var $header = $('<header></header>').addClass('header');
         $body.append($header);
 
-        var $tweetSection = $('<section></section>').attr('id', 'tweetSection');
+        var $tweetSection = $('<section></section>').addClass('tweetSection');
         $body.append($tweetSection);
 
         var $toggleRefresh = $('<div></div>').addClass('toggleRefresh').text('On');
@@ -50,8 +50,10 @@
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
+              var $tweetContainer = $('<div></div>').addClass('tweetContainer');
               $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at);
-              $tweet.hide().prependTo($tweetSection).fadeIn(800);
+              $tweet.appendTo($tweetContainer);
+              $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
               lastLength = streams.home.length;
             }
           }
