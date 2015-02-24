@@ -41,14 +41,14 @@
         });
 
         // Check for new tweets, add new tweets to html
-        var checkForNew = function() {
+        var checkForNew = function(collection) {
 
           var newLength = streams.home.length;
           var diff = newLength - lastLength;
 
           if(diff && refresh ===1) {
             for(var i=diff;i>=1;i--) {
-              tweet = streams.home[newLength-i];
+              tweet = collection[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
               var $tweetContainer = $('<div></div>').addClass('tweetContainer');  
               var $at = $('<div></div>').addClass('at').text('@').addClass('flex-center-vertically');
@@ -59,20 +59,21 @@
               $tweetContainer.append($at).append($user).append($tweet);
               $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
 
-              lastLength = streams.home.length;
+              lastLength = collection.length;
             }
           }
 
-        // Username Element Handlers
-        $('.user').on('click', function () {
-          $toggleRefresh.addClass('off');
-        });
+          // Username Element Handlers
+          $('.user').on('click', function () {
+            var thisUser = $(this).text();
+            $(this).text('get '+thisUser);
+          });
+
+          // Set interval for checking of new tweets to 2000ms
+          setInterval(function() { checkForNew(collection); },2000);
         };
 
-        checkForNew();
-        // Set interval for checking of new tweets to 2000ms
-        setInterval(checkForNew,2000);
-
+        checkForNew(streams.home);
 
       });
 
