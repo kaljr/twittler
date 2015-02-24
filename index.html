@@ -50,7 +50,7 @@
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
-              var $tweetContainer = $('<div></div>').addClass('tweetContainer');
+              var $tweetContainer = $('<div></div>').addClass('tweetContainer').addClass('clearfix');
               $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at);
               $tweet.appendTo($tweetContainer);
               $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
