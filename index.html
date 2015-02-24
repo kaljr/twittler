@@ -50,9 +50,12 @@
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
-              var $tweetContainer = $('<div></div>').addClass('tweetContainer').addClass('clearfix');
-              $tweet.text('@'+tweet.user+': '+tweet.message+' '+tweet.created_at);
-              $tweet.appendTo($tweetContainer);
+              var $tweetContainer = $('<div></div>').addClass('tweetContainer');
+              $tweetContainer.addClass('clearfix');
+              var $at = $('<div></div>').addClass('at').text('@').addClass('flex-center-vertically');
+              var $user = $('<div></div>').addClass('user').text(tweet.user).addClass('flex-center-vertically');
+              $tweet.text(tweet.message+' '+tweet.created_at).addClass('flex-center-vertically');
+              $tweetContainer.append($at).append($user).append($tweet);
               $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
               lastLength = streams.home.length;
             }

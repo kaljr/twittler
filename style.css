@@ -11,20 +11,40 @@ body {
 }
 
 .tweetContainer {
+	height: 50px;
 	width: 80%;
 	margin: 3px;
 	padding: 0;
 	background-color: #ddd;
 	border: 1px solid #999;
 	border-radius: 32px 0 0 12px;
+	overflow: auto;
+}
+
+.at {
+	height: 50px;
+	width: 40px;
+	background-color: #99C0E0;
+	float:left;
+	color: #777;
+	font-size: 2em;
+}
+
+.user {
+	height: 50px;
+	width: 120px;
+	background-color: #B4CADB;
+	float:left;
+	color: #777;
+	font-size: 1.2em;
+	overflow: auto;
 }
 
 .tweet {
-	width: 80%;
-	padding: 28px;
-	margin: 10px;
+	height: 50px;
 	font-size: 1.2em;
 	color: #555;
+	float:left;
 }
 
 .toggleRefresh {
@@ -54,6 +74,13 @@ body {
 	background-color: #eee;
 	padding: 0;
 	margin: 0;
+}
+
+.flex-center-vertically {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 50px;
 }
 
 /* Clearfix */
