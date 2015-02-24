@@ -27,16 +27,16 @@
         var $toggleRefresh = $('<div></div>').addClass('toggleRefresh').text('On');
         $header.append($toggleRefresh);
 
-        // Button handlers
-        $($toggleRefresh).on('click', function() {
+        // Button handler
+        $toggleRefresh.on('click', function() {
           if(refresh === 1) {
             refresh = 0;
-            $($toggleRefresh).text('Off');
-            $($toggleRefresh).addClass('off');
+            $toggleRefresh.text('Off');
+            $toggleRefresh.addClass('off');
           } else {
             refresh = 1;
-            $($toggleRefresh).text('On');
-            $($toggleRefresh).removeClass('off');
+            $toggleRefresh.text('On');
+            $toggleRefresh.removeClass('off');
           }
         });
 
@@ -50,13 +50,15 @@
             for(var i=diff;i>=1;i--) {
               tweet = streams.home[newLength-i];
               var $tweet = $('<div></div>').addClass('tweet');
-              var $tweetContainer = $('<div></div>').addClass('tweetContainer');
-              $tweetContainer.addClass('clearfix');
+              var $tweetContainer = $('<div></div>').addClass('tweetContainer');  
               var $at = $('<div></div>').addClass('at').text('@').addClass('flex-center-vertically');
               var $user = $('<div></div>').addClass('user').text(tweet.user).addClass('flex-center-vertically');
               $tweet.text(tweet.message+' '+tweet.created_at).addClass('flex-center-vertically');
+
+              $tweetContainer.addClass('clearfix');
               $tweetContainer.append($at).append($user).append($tweet);
               $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
+
               lastLength = streams.home.length;
             }
           }

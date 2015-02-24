@@ -42,6 +42,10 @@ body {
 	overflow: auto;
 }
 
+.user:hover {
+	background-color: #444;
+}
+
 .tweet {
 	padding-left: 8px;
 	height: 50px;
