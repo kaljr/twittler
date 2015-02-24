@@ -22,25 +22,28 @@ body {
 }
 
 .at {
+	padding: 3px 0 0 18px;
 	height: 50px;
 	width: 40px;
-	background-color: #99C0E0;
+	background-color: #B4CADB;
 	float:left;
-	color: #777;
-	font-size: 2em;
+	color: #99B0C2;
+	font-size: 2.2em;
 }
 
 .user {
+	padding-left: 8px;
 	height: 50px;
-	width: 120px;
-	background-color: #B4CADB;
+	width: 140px;
+	background-color: #8AA7BF;
 	float:left;
-	color: #777;
+	color: #E4EDF5;
 	font-size: 1.2em;
 	overflow: auto;
 }
 
 .tweet {
+	padding-left: 8px;
 	height: 50px;
 	font-size: 1.2em;
 	color: #555;
