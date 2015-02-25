@@ -1,43 +1,46 @@
 body {
 	background-color:#eee;
+	background-image: url('images/3.jpg');
+	background-attachment: fixed;
 	margin: 0;
 	padding: 0;
 }
 
 .header {
-	background-color: #666;
+	background-image: url('images/transBlack75.png');
 	margin: 0;
 	padding: 10px;
 }
 
 .tweetContainer {
-	height: 50px;
+	height: 70px;
 	width: 80%;
 	margin: 3px;
 	padding: 0;
-	background-color: #ddd;
-	border: 1px solid #999;
+	background-image: url('images/transBlack50.png');
+	border: 1px solid #222;
 	border-radius: 32px 0 0 12px;
 	overflow: auto;
 }
 
 .at {
-	padding: 3px 0 0 18px;
-	height: 50px;
+	padding: 3px 0 0 10px;
+	height: 70px;
 	width: 40px;
-	background-color: #B4CADB;
+	background-image: url('images/transBlack50.png');
 	float:left;
-	color: #99B0C2;
+	color: #777;
 	font-size: 2.2em;
+	text-align: right;
 }
 
 .user {
-	padding-left: 8px;
-	height: 50px;
+	padding-left: 2px;
+	height: 70px;
 	width: 140px;
-	background-color: #8AA7BF;
+	background-image: url('images/transBlack50.png');
 	float:left;
-	color: #E4EDF5;
+	color: #aaa;
 	font-size: 1.2em;
 	overflow: auto;
 }
@@ -48,9 +51,9 @@ body {
 
 .tweet {
 	padding-left: 8px;
-	height: 50px;
+	height: 70px;
 	font-size: 1.2em;
-	color: #555;
+	color: #aaa;
 	float:left;
 }
 
@@ -78,7 +81,6 @@ body {
 }
 
 .tweetSection {
-	background-color: #eee;
 	padding: 0;
 	margin: 0;
 }
@@ -87,7 +89,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 50px;
+  height: 70px;
 }
 
 /* Clearfix */
