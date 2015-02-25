@@ -13,6 +13,7 @@
         // Initialize variables
         var lastLength = 0;
         var refresh = 1;
+        var current = {interval: undefined};
 
         // Create html structure/elements
         var $body = $('body');
@@ -43,7 +44,7 @@
         // Check for new tweets, add new tweets to html
         var checkForNew = function(collection) {
 
-          var newLength = streams.home.length;
+          var newLength = collection.length;
           var diff = newLength - lastLength;
 
           if(diff && refresh ===1) {
@@ -66,14 +67,17 @@
           // Username Element Handlers
           $('.user').on('click', function () {
             var thisUser = $(this).text();
-            $(this).text('get '+thisUser);
+            $tweetSection.html('');
+            lastLength = 0;
+            checkForNew(streams.users[thisUser]);
+            clearInterval(current.interval);
+            current.interval = setInterval(checkForNew,2000,streams.users[thisUser]);
           });
-
-          // Set interval for checking of new tweets to 2000ms
-          setInterval(function() { checkForNew(collection); },2000);
         };
 
         checkForNew(streams.home);
+        // Set interval for checking of new tweets to 2000ms
+        current.interval = setInterval(checkForNew,2000,streams.home);
 
       });
 
