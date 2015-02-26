@@ -28,6 +28,9 @@
         var $toggleRefresh = $('<div></div>').addClass('toggleRefresh').text('On');
         $header.append($toggleRefresh);
 
+        var $title = $('<div>twittler</div>').addClass('title');
+        $header.append($title);
+
         // Button handler
         $toggleRefresh.on('click', function() {
           if(refresh === 1) {
@@ -58,7 +61,7 @@
 
               $tweetContainer.addClass('clearfix');
               $tweetContainer.append($at).append($user).append($tweet);
-              $tweetContainer.hide().prependTo($tweetSection).fadeIn(800);
+              $tweetContainer.hide().prependTo($tweetSection).slideDown(800);
 
               lastLength = collection.length;
             }
